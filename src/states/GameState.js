@@ -8,7 +8,7 @@ class GameState extends Phaser.State {
     }
 
     render () {
-        this.game.debug.text('debug text', 32, 32);
+        if(this.debug) { this.game.debug.text('debug text', 32, 32)};
     }
 }
 

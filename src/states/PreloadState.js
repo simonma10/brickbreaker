@@ -8,20 +8,10 @@ class PreloadState extends Phaser.State {
         this.ready = false;
     }
     preload () {
-        //	These are the assets we loaded in Boot.js
-        //	A nice sparkly background and a loading progress bar
-
-        //this.background = this.add.sprite(0, 0, 'preloaderBackground');
+        this.background = this.add.sprite(0, 0, 'preloaderBackground');
         this.preloadBar = this.add.sprite(50, 400, 'preloaderBar');
 
-        //	This sets the preloadBar sprite as a loader sprite.
-        //	What that does is automatically crop the sprite from 0 to full-width
-        //	as the files below are loaded in.
-
         this.load.setPreloadSprite(this.preloadBar);
-
-        //	Here we load the rest of the assets our game needs.
-        //	You can find all of these assets in the Phaser Examples repository
 
         this.game.load.image('tetris1', 'static/images/tetrisblock1.png');
         this.load.image('tetris2', 'static/images/tetrisblock2.png');
@@ -29,6 +19,49 @@ class PreloadState extends Phaser.State {
         this.load.image('hotdog', 'static/images/hotdog.png');
         this.load.image('starfield', 'static/images/deep-space.jpg');
         this.load.image('dnd', 'static/images/dndmap.png');
+        this.load.image('black128px', 'static/images/black128px.png');
+        this.load.image('blue64px', 'static/images/blue64px.png');
+        this.load.image('cross64', 'static/images/cross64.png');
+        this.load.image('green64px', 'static/images/green64px.png');
+        this.load.image('orange64px', 'static/images/orange64px.png');
+        this.load.image('rectangles', 'static/images/rectangles.png');
+        this.load.image('red64px', 'static/images/red64px.png');
+        this.load.image('redCircle96', 'static/images/redCircle96.png');
+        this.load.image('redStar96', 'static/images/redStar96.png');
+        this.load.image('white640', 'static/images/white640x640.png');
+        this.load.image('tick64', 'static/images/tick64.png');
+        this.load.image('yellow64px', 'static/images/yellow64px.png');
+
+        let manifest = this.game.cache.getJSON('manifest');
+
+        if (manifest){
+            for(let image of manifest.images) {
+                if(image.hasOwnProperty('key') && image.hasOwnProperty('path')){
+                    let imageKey = image.key;
+                    let imagePath = image.path;
+                    this.load.image(imageKey, imagePath);
+                }
+            }
+
+            for(let spritesheet of manifest.spritesheets) {
+                if(spritesheet.hasOwnProperty('key') &&
+                    spritesheet.hasOwnProperty('path') &&
+                    spritesheet.hasOwnProperty('frameWidth') &&
+                    spritesheet.hasOwnProperty('frameHeight') &&
+                    spritesheet.hasOwnProperty('frameMax')
+                ){
+                    this.load.spritesheet(
+                        spritesheet.key,
+                        spritesheet.path,
+                        spritesheet.frameWidth,
+                        spritesheet.frameHeight,
+                        spritesheet.frameMax
+                    );
+                }
+            }
+        }
+
+
 
     }
 
@@ -36,7 +69,7 @@ class PreloadState extends Phaser.State {
         this.state.start('GameState');
     }
     render () {
-        this.game.debug.text('preload state', 32, 32);
+        if (this.debug) {this.game.debug.text('preload state ' + this.load.progress, 32, 32)};
     }
 
 }

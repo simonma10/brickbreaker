@@ -24,9 +24,10 @@ class BootState extends Phaser.State {
     }
 
     preload () {
-        //  Here we load the assets required for our preloader (in this case a background and a loading bar)
+        //  Here we load the assets required for our preloader, including an asset manifest
         this.load.image('preloaderBackground', 'static/images/preloader_background.jpg');
         this.load.image('preloaderBar', 'static/images/preload.png');
+        this.load.json('manifest', '/static/data/manifest.json');
     }
 
     create () {
@@ -34,7 +35,7 @@ class BootState extends Phaser.State {
     }
 
     render () {
-        this.game.debug.text('boot state', 32, 32);
+        if(this.debug) {this.game.debug.text('boot state', 32, 32)};
     }
 }
 

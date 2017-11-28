@@ -6,3 +6,7 @@ dist/
 .idea/phaser-webpack.iml
 .idea/workspace.xml
 
+.idea/markdown-navigator/
+.idea/zzzmisc.xml
+.idea/zzzwatcherTasks.xml
+static/assets/
