@@ -18,7 +18,7 @@ module.exports = {
             'babel-polyfill',
             path.resolve(__dirname, 'src/index.js')
         ],
-        vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
+        /*vendor: ['pixi', 'p2', 'phaser', 'webfontloader']*/
     },
     devtool: 'cheap-source-map',
     output: {
@@ -30,7 +30,7 @@ module.exports = {
     watch: true,
     plugins: [
         definePlugin,
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
+        /*new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js'}),*/
         new BrowserSyncPlugin({
             host: process.env.IP || 'localhost',
             port: process.env.PORT || 8080,

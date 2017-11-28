@@ -27,16 +27,18 @@ class BootState extends Phaser.State {
         //  Here we load the assets required for our preloader, including an asset manifest
         this.load.image('preloaderBackground', 'static/images/preloader_background.jpg');
         this.load.image('preloaderBar', 'static/images/preload.png');
-        this.load.json('manifest', '/static/data/manifest.json');
+        try {
+            this.load.json('manifest', '/static/manifest/manifest.json');
+        } catch (e){
+            console.log('asset manifest not found.')
+        }
+
     }
 
     create () {
         this.state.start('PreloadState');
     }
 
-    render () {
-        if(this.debug) {this.game.debug.text('boot state', 32, 32)};
-    }
 }
 
 export default BootState;
