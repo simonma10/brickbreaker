@@ -4,12 +4,13 @@ class RainbowText extends Phaser.Text {
 
         this._speed = 125; // ms
         this._colorIndex = 0;
-        this._colors = ['#ee4035', '#f37736', '#fdf498', '#7bc043', '#0392cf'];
+        //this._colors = ['#ee4035', '#f37736', '#fdf498', '#7bc043', '#0392cf'];
+        this._colors = ['#bfbfbf', '#a9a9a9', '#7d9598', '#4bc0ba', '#2dcfc7'];
 
         this.colorize();
         this.startTimer();
 
-        this.game.stage.addChild(this);
+        this.game.world.addChild(this);
     }
 
     startTimer () {
@@ -26,6 +27,7 @@ class RainbowText extends Phaser.Text {
             this._colorIndex++;
         }
     }
+    
 }
 
 export default RainbowText;

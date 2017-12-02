@@ -45,6 +45,7 @@ class PreloadState extends Phaser.State {
                 }
             }
         }
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
     }
 
     create () {

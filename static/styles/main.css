@@ -1,3 +1,22 @@
 body {
     padding: 10px;
 }
+
+@font-face {
+    font-family: "iomanoid";
+    src: url("/static/fonts/iomanoid.ttf");
+}
+
+@font-face {
+    font-family: "vador";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/static/fonts/vador.ttf");
+}
+
+@font-face {
+    font-family: "emulogic";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/static/fonts/emulogic.ttf");
+}

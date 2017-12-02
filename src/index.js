@@ -4,7 +4,7 @@ import GameState from './states/GameState';
 import MainMenuState from './states/MainMenuState';
 import WebFont from 'webfontloader';
 
-const debug = false;
+const debug = true;
 
 class Game extends Phaser.Game {
     constructor (debug) {
@@ -42,10 +42,10 @@ const wfconfig = {
     fontinactive: function(familyName, fvd) {console.warn('Could not load webfont: ' + familyName)},
 
     google: {
-        families: ['Droid Sans', 'Droid Serif', 'Poppins', 'dfgokfvbvcidlrtg']
+        families: ['Bungee Inline', 'Orbitron', 'Audiowide', 'Righteous']
     }
 };
 
 WebFont.load(wfconfig);
 
-new Game();
+new Game(debug);

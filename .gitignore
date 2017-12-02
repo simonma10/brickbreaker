@@ -10,3 +10,5 @@ dist/
 .idea/zzzmisc.xml
 .idea/zzzwatcherTasks.xml
 static/assets/
+.idea/brickbreaker.iml
+.idea/vagrant.xml

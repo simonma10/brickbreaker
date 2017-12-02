@@ -36,6 +36,9 @@ class BootState extends Phaser.State {
     }
 
     create () {
+        this.game.add.text(0, 0, "font", {font:"1px vador", fill:"#FFFFFF"});
+        this.game.add.text(0, 0, "font", {font:"1px emulogic", fill:"#FFFFFF"});
+
         this.state.start('PreloadState');
     }
 
