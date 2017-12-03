@@ -8,10 +8,11 @@ class ArcadeScore {
         this._game = game;
 
         this._position = position;
-        this._font = "18px Orbitron";
-        let yLabel = 0;
-        let yScore = 0;
-        if (this._position = ARCADE_SCORE_BOTTOM){
+        this._font = "18px emulogic";
+        let yLabel = 32;
+        let yScore = 48;
+
+        if (this._position === ARCADE_SCORE_BOTTOM){
             yLabel = this._game.height - 24;
             yScore = this._game.height - 64;
         } else {
@@ -34,8 +35,6 @@ class ArcadeScore {
         this._hiscoreLabel.anchor.setTo(0.5);
         this._hiscoreScore = this._game.add.text(this._game.world.centerX, yScore, "120000", {font: this._font, fill: "#fff"});
         this._hiscoreScore.anchor.setTo(0.5, 0);
-
-
 
     }
 
